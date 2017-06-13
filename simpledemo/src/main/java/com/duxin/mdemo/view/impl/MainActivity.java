@@ -45,8 +45,29 @@ public class MainActivity extends AppCompatActivity implements IMainView, BaseQu
         MyAdpter myAdpter = new MyAdpter(this, videoBeens);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(myAdpter);
-        myAdpter.setOnItemSwipeMenuListener(this);
-        myAdpter.setSwipeMenuCreator(this);
+        myAdpter.setOnItemSwipeMenuListener(new BaseQuickAdapter.OnItemSwipeMenuListener() {
+            @Override
+            public void onItemSwipeMenu(int position, int index) {
+
+            }
+        });
+        myAdpter.setSwipeMenuCreator(new SwipeMenuCreator() {
+            @Override
+            public void SwipeMenuCreat(SwipeMenu swipeMenu) {
+                SwipeMenuConfig menuConfig = new SwipeMenuConfig(MainActivity.this);
+                menuConfig.setBackgroundColor(Color.parseColor("#ff0000"));
+                menuConfig.setIndex(0);
+                menuConfig.setTitle("侧滑");
+                menuConfig.setTitleColor(Color.WHITE);
+                menuConfig.setTitleSize(16);
+                menuConfig.setWidth(dip2px(72));
+                //滑动方向 可以不设置 默认RIGHT
+                menuConfig.setGravity(Gravity.RIGHT);
+                //添加多个显示多个菜单  可以设置  menuConfig.setIndex()区分 不设置 默认  0开始依次相加
+
+                swipeMenu.addMenuConfig(menuConfig);
+            }
+        });
         myAdpter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -75,16 +96,6 @@ public class MainActivity extends AppCompatActivity implements IMainView, BaseQu
     @Override
     public void SwipeMenuCreat(SwipeMenu swipeMenu) {
 
-        SwipeMenuConfig menuConfig = new SwipeMenuConfig(this);
-        menuConfig.setBackgroundColor(Color.parseColor("#ff0000"));
-        menuConfig.setIndex(0);
-        menuConfig.setTitle("侧滑");
-        menuConfig.setTitleColor(Color.WHITE);
-        menuConfig.setTitleSize(16);
-        menuConfig.setWidth(dip2px(72));
-        //滑动方向
-        menuConfig.setGravity(Gravity.RIGHT);
-        swipeMenu.addMenuConfig(menuConfig);
 
     }
 
