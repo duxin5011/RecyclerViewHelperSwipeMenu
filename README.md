@@ -1,7 +1,7 @@
 # description
 对 [BaseRecyclerViewAdapterHelper](https://github.com/CymChad/BaseRecyclerViewAdapterHelper) 进行
  侧滑菜单功能添加封装  更方便大家使用
- 如需使用BaseRecyclerViewAdapterHelper 可以参考 [点一下](http://www.jianshu.com/p/b343fcff51b0)
+ 如需使用BaseRecyclerViewAdapterHelper 可以参考 [点一下](http://www.jianshu.com/p/b343fcff51b0) demo使用mvp+retrofit+rxjava  数据使用jsoup从百思不得姐爬的视频数据有兴趣可以看看怎样实现
  
  ## How to use?
 添加demo中library到你的项目
